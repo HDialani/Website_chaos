@@ -1,0 +1,15 @@
+/* Define styles for unvisited links */
+a:link {
+    color: blue;
+    text-decoration: none; /* Remove underline if desired */
+}
+
+/* Define styles for visited links */
+a:visited {
+    color: blue; /* Set the color to blue for visited links */
+}
+
+/* Define styles for hovered links */
+a:hover {
+    color: purple; /* Change color on hover if desired */
+}
