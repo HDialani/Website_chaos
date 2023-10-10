@@ -1,2 +1,2 @@
 # Website_chaos
-Try to learn how to make a website
+Trying to learn how to make a website
