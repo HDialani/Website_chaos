@@ -33,7 +33,7 @@ a:hover {
 #education-box {
     position: absolute;
     top: 0;
-    left: 70px; /* Adjust the left value to move the Education block to the right */
+    left: 67px; /* Adjust the left value to move the Education block to the right */
     background-color: #007bff; /* Blue background color, you can change this */
     color: #fff; /* Text color */
     padding: 10px; /* Adjust padding as needed */
@@ -45,6 +45,65 @@ a:hover {
     font-weight: bold;
     font-size: 18px;
 }
+#experience-box {
+    position: absolute;
+    top: 0;
+    left: 168px; /* Adjust the left value to move the Education block to the right */
+    background-color: #007bff; /* Blue background color, you can change this */
+    color: #fff; /* Text color */
+    padding: 10px; /* Adjust padding as needed */
+}
+
+#experience-box a {
+    text-decoration: none;
+    color: #fff; /* Link color */
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Style for the project dropdown container */
+#project-box {
+    position: absolute;
+    top: 0;
+    left: 277px; /* Adjust the left value to position the dropdown */
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Style for the block label */
+.block-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Style for the block select element */
+.block-select {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #007bff; /* Background color for the dropdown */
+    color: #fff; /* Text color for the dropdown */
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Remove the default dropdown arrow */
+.block-select::-ms-expand {
+    display: none;
+}
+
+/* Style for the block select on hover/focus */
+.block-select:hover, .block-select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
 
 .separator {
     width: 100%;
