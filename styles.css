@@ -102,9 +102,6 @@ a:hover {
 }
 
 
-
-
-
 .separator {
     width: 100%;
     height: 1px;
@@ -120,4 +117,38 @@ a:hover {
 header {
     margin-top: 50px;
     text-align: center; /* Center-align the text inside the header */
+}
+
+.center {
+    text-align: center;
+}
+
+.center table {
+    margin: 0 auto;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.image-container img {
+    max-width: 25%; /* You can adjust the width as needed */
+    height: auto;
+}
+
+#scrollToTopButton {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 24px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }

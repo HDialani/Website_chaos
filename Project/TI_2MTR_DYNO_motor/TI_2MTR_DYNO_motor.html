@@ -1,72 +1,161 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Hitesh Dialani - Website</title>
-		    <style>
-            /* Center the image and set its maximum width */
-            img {
-                display: block;
-                margin: 0 auto;
-                max-width: 30%; /* Adjust the maximum width as needed */
-            }
-			
-			figcaption {
-                text-align: center;
-                font-style: italic;
-            }
-            </style>
-    </head>
-    <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitesh Dialani - Website</title>
+    <link rel="stylesheet" href="../../styles.css">
+		<script src="../../script.js"></script>
+    <style>
+        /* Center the image and set its maximum width */
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 30%; /* Adjust the maximum width as needed */
+        }
+        figcaption {
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
 	
-	<section id="home-box">
+		<!-- Latex code library -->
+	 <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <section id="home-box">
         <a href="../../main.html">Home</a>
     </section>
     
     <section id="education-box">
         <a href="../../Education.html">Education</a>
     </section>
-	
+    
     <section id="experience-box">
         <a href="../../Experience.html">Experience</a>
-    </section>	
+    </section>
+
+    <figure>
+        <img src="Setup.jpeg" alt="Image description">
+        <figcaption>Photo: Hitesh Dialani</figcaption>
+    </figure>
+
+    <p>Jesus, I need professional help.</p>
+
+    <h1 class="center">Motivation</h1>
+    <p class="center">I need 15 ECTS, and this was more fun than exams and less of a hassle than an internship.</p>
+
+    <h1 class="center">Things Needed for this Project</h1>
+    <div>
+        <ul>
+            <p class="center">Texas Instruments TMS320F28379D Launchpad</p>
+            <p class="center">Texas Instruments BoostXL-drv8305 </p>
+            <p class="center">24-volt power supply</p>
+            <p class="center">M-2310P-LN-04K Brushless Three-Phase permanent magnet motor</p>
+            <p class="center">Micro-fit connector</p>
+            <p class="center">Oscilloscope</p>
+            <p class="center">Voltage probes</p>
+            <p class="center">Current probes</p>
+			<p class="center">Mini USB cable for programming </p>
+			<p class="center">Laptop/Computer with Matlab 2021b or later. You need to motor controller block set and all relevant code for C2000 programming with Simulink. </p>
+        </ul>
+    </div>
+
+    <h1 class="center">Setting Up Everything</h1>
+
+    <p class="center">Now on to how to set everything up</p>
+
+    <h2 class="center">Wiring</h2>
 	
-        <p>I need professional help Jesus.</p>
-        <figure>
-            <img src="Setup.jpeg" alt="Image description">
-            <figcaption>Photo: Hitesh Dialani</figcaption>
-        </figure>
-		
-	<h1> Motivation</h1>
-	<p>I need 15 ECTS and this was more fun than exams and less of a hassle than an internship.</p>
-    
-	<h1>Thing needed for this project </h1>
-	<div>
-	  <ul>
-		<li>Texas instruments TMS320F28379D launchpad</li>
-		<li>Texas instruments DRV8305N 3-Phase Motor Drive BoosterPack Evaluation Module </li>
-		<li>24 volt power supply  </li>
-		<li>M-2310P-LN-04K Brushless Three-Phase permanent magnet motor </li>
-		
-	  </ul>
+	<div class="image-container">
+		<img src="Wiring/TI_motorkit_setup_part2.png" alt="Image 2" style="width: 300px; height: 300px;">
+		<img src="Wiring/TI_motorkit_setup_part1.png" alt="Image 1" >
+		<img src="Wiring/TI_motorkit_setup_part3.png" alt="Image 3" style="width: 400px; height: 400px;">
 	</div>
+			<figcaption>Source: <a href="https://nl.mathworks.com/help/mcb/gs/hardware-connections.html">Hardware Connections</a></figcaption>
+
+	<p class="center">Assembling everything together gives the image below</p>
+
+	 <figure>
+		<p><img src="Wiring/Assembled.png" alt="Assembled"></p>
+        <figcaption>Photo: Hitesh Dialani</figcaption>
+     </figure>
 	
-	<h1>Setting up everything </h1>
-	Now on to how to set everything up
+	<p class="center"> The blue wire on the bottom is ground. The red is PVDD (Power). The BoostXL-drv8305 does <b>not</b> have reverse voltage protection so don’t mix them up.</p> 
+	<p class="center"> I added brown electrical tape to represent phase A motor side. Green is phase B and black tape is phase C.
+	Mixing up phases can cause the motor to spin the opposite direction. </p> 
+    
+	<h2 class="center">Software</h2>
+    <p class="center">Make sure you can already do the <a href="https://nl.mathworks.com/videos/getting-started-with-c2000-microcontroller-blockset-1691473750888.html?s_tid=vid_pers_recs">Blinky example</a> from Matlab. Ps you need Control suite,Code composer studio and Embedded coder, don't forger Control suite from TI.</p>
+
+    <h1 class="center">Extract Motor Parameters</h1>
+
+    <h2 class="center">From Datasheet</h2>
+	<p class="center">I used  <a href="https://www.teknic.com/files/product_info/N23_Industrial_Grade_Motors_v6.3.pdf">m-2310p-ln-04k</a> from teknic.com I also have a local copy <a href="N23_Industrial_Grade_Motors_v6.3.pdf">local copy</a>. </p>
+	<div class="center">
+        <table border="1">
+            <tr>
+                <th>Parameter</th>
+                <th>Value</th>
+                <th>Unit</th>
+            </tr>
+            <tr>
+                <td>Pole pairs</td>
+                <td>4</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Resistance, phase to phase</td>
+                <td>0.72</td>
+                <td>\(\Omega\)</td>
+            </tr>
+            <tr>
+                <td>Inductance, phase to phase</td>
+                <td>0.40</td>
+                <td>\(mH\)</td>
+            </tr>
+            <tr>
+                <td>Back EMF \(K_e\)</td>
+                <td>4.64</td>
+                <td>Vpeak/kRPM</td>
+            </tr>
+        </table>
+    </div>
+
+    <h2 class="center">Manually</h2>
+
+	<p class="center">For the manual approach I followed the NXP application document <a href="AN4680.pdf">AN4680</a>. Sadly they took it down so the link is to a local copy. </p>
 	
-	<h2>Wiring </h2>
+	<h3 class="center">Number of pole pairs </h3>
+	<p class="center">For the number of pole pairs I followed </p>
 	
-	<h2>Software </h2>
+	<p><img src="Motor_parameters/Pole_pairs.png" alt="pole_pairs"></p>
 	
-	<h1>Extract motor parameters </h1>
+	<video width="400" controls>
+	<source src="Motor_parameters/Pole_pairs.mp4" type="video/mp4">
+	Your browser does not support HTML video.
+	</video>
 	
-	<h2>Number of pole pairs </h2>
+	<p class="center"> The reasoning is pretty straight forward by using DC voltage phase A would be North and Phase B and C would be South. The permanent magnet's South would be attracted to the stator North.</p>
 	
-	<h2>Stator resistance </h2>
+	<h3 class="center">Stator resistance \(R_s\)</h3>
+	<p class="center">The approach is quite straightforward: measure the resistance of two phase wires to determine the phase-to-phase resistance. For better accuracy, use an LCR meter or, if available, an mOhm meter. To find the phase-to-neutral resistance, simply divide the phase-to-phase resistance by 2.</p>
+
+	<p><img src="Motor_parameters/Rs.jpeg" alt="Rs"></p>
 	
-	<h2>Direct axis inducatance </h2>
+	<h3 class="center">Back-emf \(K_e\)</h3>
+	<p class="center">For single phase measurement: </p>
+	<p class="center">\(K_{ephx=V \)/p> 
 	
-	<h2>Quadrature axis inducatance </h2>
+    <h3 class="center">Direct Axis Inductance</h3>
+	<p>Here is an inline equation: \(E=mc^2\)</p> 
+    <p>And here is a displayed equation: \[F = G \frac{{m_1 m_2}}{{r^2}}\]</p>
+    <h3 class="center">Quadrature Axis Inductance</h3>
+
+    <h2 class="center">Using Simulink Provided Models</h2>
 	
-	
-	</body>
+	 <button id="scrollToTopButton">^</button>
+</body>
 </html>
